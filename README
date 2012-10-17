@@ -59,3 +59,6 @@ eset.entrezgene = justRMA(cdfname="hgu133plus2hsentrezgcdf")
 Interpretation:
 For custom CDFs keyed to Entrez Gene IDs, a probeset like 10000_at represents Entrez Gene with ID = 10000 (AKT3)
 For other types of transcriptomes, also remove the "_at" to get the gene/transcript ID.
+
+###download ens table from biomart, and convert
+cuta.py -f2,1 ens.biomart.table.txt > ens.biomart.table.ensID2GeneName
