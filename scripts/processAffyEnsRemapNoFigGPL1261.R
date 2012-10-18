@@ -27,6 +27,12 @@ es3 = mas5(Data)
 write.exprs(es3,file="mas5.mouse4302mmensgcdf.txt")
 print("mas5 written")
 
+mas5Matrix=read.delim("mas5.hgu133plus2hsensgcdf.txt",row.names=1)
+mas5.log2=log2(mas5Matrix)
+write.table(cbind("ensID",t(as.matrix(colnames(mas5Matrix)))),"mas5log2.hgu133plus2hsensgcdf.txt",quote=FALSE,sep="\t",row.names=FALSE,col.names=FALSE)
+write.table(mas5.log2,"mas5log2.hgu133plus2hsensgcdf.txt",quote=FALSE,sep="\t",append=TRUE,col.names=FALSE)
+
+
 esMasCall = mas5calls(Data)
 
 write.exprs(esMasCall,file="mas5calls.mouse4302mmensgcdf.txt")

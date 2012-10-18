@@ -32,6 +32,8 @@ for i in *.txt; do
 		rm ${i/.txt/}.ensID.00
 	fi
 	
-	joinu.py -1 1 -2 1 -f NA   ${i/.txt/}.ensID.TXT $scriptPath/ens.biomart.table.ensID2GeneName | awk -v FS="\t" -v OFS="\t" '{if($NF=="NA"){$NF=$1} print;}' > ${i/.txt/}.ensIDAndgeneName.TXT
+	joinu.py -1 1 -2 1 -f NA  ${i/.txt/}.ensID.TXT $scriptPath/ens.biomart.table.ensID2GeneName  | awk -v FS="\t" -v OFS="\t" '{if($NF=="NA"){$NF=$1} print;}' > ${i/.txt/}.ensIDAndgeneName.TXT
 	cuta.py -f_1,2-_2 ${i/.txt/}.ensIDAndgeneName.TXT  > ${i/.txt/}.geneName.TXT
 done
+
+#
